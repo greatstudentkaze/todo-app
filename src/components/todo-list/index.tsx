@@ -1,23 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import ToDoItem from '../todo-item';
-import { ToDoItem as ToDoItemType } from '../../types';
+import { RootState } from '../../App';
+import searchToDos from '../../utils/searchToDos';
 
-type Props = {
-  items: ToDoItemType[],
-  handleToggleToDo: (id: string) => void,
-  handleRemoveToDo: (id: string) => void,
-  updateToDoTitle: (id: string, title: string) => void,
-};
+const mapStateToProps = ({ todos, filter }: RootState) => ({
+  todos: searchToDos(todos, filter.searchQuery),
+});
 
-const ToDoList = ({ items, handleToggleToDo, handleRemoveToDo, updateToDoTitle }: Props) => {
+type StateProps = ReturnType<typeof mapStateToProps>
+
+const ToDoList = ({ todos }: StateProps) => {
+
     return (
         <ul className="todo-list">
           {
-            items.map(item => <ToDoItem key={item.id} data={item} onToggle={handleToggleToDo} onRemove={handleRemoveToDo} updateToDoTitle={updateToDoTitle} />)
+            todos.map(todo => <ToDoItem key={todo.id} data={todo} />)
           }
         </ul>
     );
 };
 
-export default ToDoList;
+export default connect(mapStateToProps)(ToDoList);
