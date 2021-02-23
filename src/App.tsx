@@ -30,8 +30,12 @@ const App = () => {
     );
   };
 
+  const handleRemoveToDo = (id: string) => {
+    setTodos(prevState => prevState.filter(todo => todo.id !== id));
+  };
+
   return (
-    <ToDoList items={todos} handleToggleToDo={handleToggleToDo}/>
+    <ToDoList items={todos} handleToggleToDo={handleToggleToDo} handleRemoveToDo={handleRemoveToDo} />
   );
 };
 
