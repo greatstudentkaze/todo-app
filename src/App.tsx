@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import ToDoList from './components/todo-list';
 import { ToDoItem as TodoItemType } from './types';
+import ToDoAddingForm from './components/todo-adding-form';
 
 const initialTodos: TodoItemType[] = [
   {
@@ -40,8 +41,15 @@ const App = () => {
     );
   };
 
+  const addToDo = (newToDo: TodoItemType) => {
+    setTodos([...todos, newToDo])
+  };
+
   return (
-    <ToDoList items={todos} handleToggleToDo={handleToggleToDo} handleRemoveToDo={handleRemoveToDo} updateToDoTitle={updateToDoTitle} />
+    <>
+      <ToDoAddingForm addToDo={addToDo} />
+      <ToDoList items={todos} handleToggleToDo={handleToggleToDo} handleRemoveToDo={handleRemoveToDo} updateToDoTitle={updateToDoTitle} />
+    </>
   );
 };
 
