@@ -34,8 +34,14 @@ const App = () => {
     setTodos(prevState => prevState.filter(todo => todo.id !== id));
   };
 
+  const updateToDoTitle = (id: string, title: string) => {
+    setTodos(prevState =>
+      prevState.map(todo => todo.id === id ? {...todo, title} : todo)
+    );
+  };
+
   return (
-    <ToDoList items={todos} handleToggleToDo={handleToggleToDo} handleRemoveToDo={handleRemoveToDo} />
+    <ToDoList items={todos} handleToggleToDo={handleToggleToDo} handleRemoveToDo={handleRemoveToDo} updateToDoTitle={updateToDoTitle} />
   );
 };
 
