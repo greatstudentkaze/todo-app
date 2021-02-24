@@ -1,21 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { ToDoItem as ToDoItemType } from '../../types';
-import { removeToDo, toggleToDo, changeToDoTitle } from '../../redux/actions/todos';
+import { TaskItem as TaskItemType } from '../../types';
+import { removeTask, toggleTask, changeTaskTitle } from '../../redux/actions/tasks';
 
 type Props = {
-  data: ToDoItemType,
+  data: TaskItemType,
 };
 
-const ToDoItem = ({ data: { title, id, completed } }: Props) => {
+const TaskItem = ({ data: { title, id, completed } }: Props) => {
   const dispatch = useDispatch();
 
   const handleChangeButtonClick = () => {
     const newTitle: string = prompt('Измените задачу:', title) ?? title;
 
     if (newTitle !== title) {
-      dispatch(changeToDoTitle(id, newTitle));
+      dispatch(changeTaskTitle(id, newTitle));
     }
   };
 
@@ -23,14 +23,14 @@ const ToDoItem = ({ data: { title, id, completed } }: Props) => {
     const isRemove = window.confirm('Удалить задачу?');
 
     if (isRemove) {
-      dispatch(removeToDo(id));
+      dispatch(removeTask(id));
     }
   };
 
   return (
-    <li className="todo-list__item todo-item">
-      <input type="checkbox" id={`todo-${id}`} checked={completed} onChange={() => dispatch(toggleToDo(id))} />
-      <label htmlFor={`todo-${id}`}>{title}</label>
+    <li className="task-list__item task-item">
+      <input type="checkbox" id={`task-${id}`} checked={completed} onChange={() => dispatch(toggleTask(id))} />
+      <label htmlFor={`task-${id}`}>{title}</label>
       <button type="button" onClick={handleChangeButtonClick}>
         Изменить
       </button>
@@ -41,4 +41,4 @@ const ToDoItem = ({ data: { title, id, completed } }: Props) => {
   );
 };
 
-export default ToDoItem;
+export default TaskItem;

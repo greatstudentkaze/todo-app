@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addToDo } from '../../redux/actions/todos';
+import { addTask } from '../../redux/actions/tasks';
 
-import { ToDoItem as ToDoItemType } from '../../types';
+import { TaskItem as TaskItemType } from '../../types';
 
-const ToDoAddingForm = () => {
+const TaskAddingForm = () => {
   const dispatch = useDispatch();
   const titleInputRef = useRef<HTMLInputElement>(null);
 
@@ -13,13 +13,13 @@ const ToDoAddingForm = () => {
     evt.preventDefault();
 
     if (titleInputRef.current!.value) {
-      const todo: ToDoItemType = {
+      const task: TaskItemType = {
         id: String(Date.now()),
         title: titleInputRef.current!.value,
         completed: false,
       };
 
-      dispatch(addToDo(todo));
+      dispatch(addTask(task));
 
       titleInputRef.current!.value = '';
     }
@@ -27,11 +27,11 @@ const ToDoAddingForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="todo-title">Введите название задачи:</label>
-      <input ref={titleInputRef} type="text" name="title" id="todo-title" placeholder="Съесть пиццу"/>
+      <label htmlFor="task-title">Введите название задачи:</label>
+      <input ref={titleInputRef} type="text" name="title" id="task-title" placeholder="Съесть пиццу"/>
       <button type="submit">Добавить</button>
     </form>
   );
 };
 
-export default ToDoAddingForm;
+export default TaskAddingForm;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ToDoList from './components/todo-list';
-import { ToDoItem as ToDoItemType } from './types';
-import ToDoAddingForm from './components/todo-adding-form';
-import ToDoSearchForm from './components/todo-search-form';
+import TaskList from './components/task-list';
+import { TaskItem as TaskItemType } from './types';
+import TaskAddingForm from './components/task-adding-form';
+import TaskSearchForm from './components/task-search-form';
 
 export interface RootState {
-  todos: ToDoItemType[],
+  tasks: TaskItemType[],
   filter: {
     searchQuery: string,
   }
@@ -15,9 +15,9 @@ export interface RootState {
 const App = () => {
   return (
     <>
-      <ToDoSearchForm />
-      <ToDoAddingForm />
-      <ToDoList />
+      <TaskSearchForm />
+      <TaskAddingForm />
+      <TaskList />
     </>
   );
 };

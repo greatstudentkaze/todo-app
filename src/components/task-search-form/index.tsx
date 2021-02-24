@@ -6,7 +6,7 @@ import { RootState } from '../../App';
 
 const selectFilter = (state: RootState) => state.filter;
 
-const ToDoSearchForm = () => {
+const TaskSearchForm = () => {
   const dispatch = useDispatch();
   const { searchQuery } = useSelector(selectFilter);
 
@@ -16,7 +16,7 @@ const ToDoSearchForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="todo-title">Что ищем?</label>
+      <label htmlFor="task-title">Что ищем?</label>
       <input
         type="text"
         name="search-query"
@@ -28,4 +28,4 @@ const ToDoSearchForm = () => {
   );
 };
 
-export default ToDoSearchForm;
+export default TaskSearchForm;
