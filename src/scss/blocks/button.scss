@@ -36,7 +36,7 @@
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 3px $white, 0 0 0 5px $blue;
+    box-shadow: 0 0 0 3px $white, 0 0 0 5px $dark-blue;
 
     &:hover {
       border-color: $transparent;
