@@ -1,9 +1,8 @@
 import React from 'react';
 
-import TaskList from './components/task-list';
+import Tasks from './components/tasks';
 import { TaskItem as TaskItemType } from './types';
-import TaskAddingForm from './components/task-adding-form';
-import TaskSearchForm from './components/task-search-form';
+import Header from './components/header';
 
 export interface RootState {
   tasks: TaskItemType[],
@@ -15,9 +14,10 @@ export interface RootState {
 const App = () => {
   return (
     <>
-      <TaskSearchForm />
-      <TaskAddingForm />
-      <TaskList />
+      <Header />
+      <main className="container">
+        <Tasks />
+      </main>
     </>
   );
 };
