@@ -13,13 +13,13 @@ type StateProps = ReturnType<typeof mapStateToProps>
 
 const TaskList = ({ tasks }: StateProps) => {
 
-    return (
-        <ul className="task-list">
-          {
-            tasks.map(task => <TaskItem key={task.id} data={task} />)
-          }
-        </ul>
-    );
+  return (
+    <ul className="task-list">
+      {
+        tasks.map(task => <TaskItem key={task.id} data={task} />)
+      }
+    </ul>
+  );
 };
 
 export default connect(mapStateToProps)(TaskList);

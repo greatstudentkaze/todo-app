@@ -29,14 +29,16 @@ const TaskItem = ({ data: { title, id, completed } }: Props) => {
 
   return (
     <li className="task-list__item task-item">
-      <input type="checkbox" id={`task-${id}`} checked={completed} onChange={() => dispatch(toggleTask(id))} />
-      <label htmlFor={`task-${id}`}>{title}</label>
-      <button type="button" onClick={handleChangeButtonClick}>
-        Изменить
-      </button>
-      <button type="button" onClick={handleRemoveButtonClick}>
-        Удалить
-      </button>
+      <input className="visually-hidden" type="checkbox" id={`task-${id}`} checked={completed} onChange={() => dispatch(toggleTask(id))} />
+      <label className="task-item__title" htmlFor={`task-${id}`}>{title}</label>
+      <div className="task-item__actions">
+        <button className="task-item__button" type="button" onClick={handleChangeButtonClick}>
+          Изменить
+        </button>
+        <button className="task-item__button" type="button" onClick={handleRemoveButtonClick}>
+          Удалить
+        </button>
+      </div>
     </li>
   );
 };
