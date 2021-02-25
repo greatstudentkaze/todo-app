@@ -1,0 +1,96 @@
+@import "../variables";
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  padding-left: 0;
+
+  font-size: 16px;
+  line-height: 18px;
+
+  &:hover {
+    .task-item__actions {
+      .task-item__button {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.task-item__title {
+  position: relative;
+
+  padding-left: calc(18px + 10px);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: text-decoration 0.2s ease-in-out 0s;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+
+    width: 18px;
+    height: 18px;
+
+    background-color: $white;
+    border: 1px solid $gray-500;
+    border-radius: 50%;
+
+    transition: background-color 0.2s ease-in-out 0s;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+
+    width: 10px;
+    height: 7px;
+
+    background-image: url("../../assets/img/svg/check.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease-in-out 0s;
+  }
+
+  &:hover {
+    &::before {
+      background-color: $gray-300;
+    }
+  }
+
+  input:checked + & {
+    text-decoration: line-through;
+    text-decoration-color: $gray-500;
+
+    &::before {
+      background-color: $gray-300;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.task-item__button {
+  opacity: 0;
+  cursor: pointer;
+
+  transition: opacity 0.2s ease-in-out 0s;
+}

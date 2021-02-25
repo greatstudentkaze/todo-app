@@ -1,0 +1,30 @@
+@import "../variables";
+
+.search-form {
+  position: relative;
+}
+
+.search-form__search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+
+  fill: $gray-500;
+}
+
+.search-form__input {
+  width: 100%;
+  max-width: 200px;
+  padding: 6px 12px;
+  padding-left: calc(12px + 14px + 8px);
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  color: $black;
+
+  border: 1px solid $transparent;
+  border-radius: 3px;
+  background-color: $white;
+}

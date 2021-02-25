@@ -1,0 +1,15 @@
+@import "../mixins";
+
+.task-list {
+  @include reset-list;
+
+  .tasks & {
+    margin-bottom: 30px;
+  }
+}
+
+.task-list__item {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}

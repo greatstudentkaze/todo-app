@@ -1,0 +1,17 @@
+// Normalize
+@import "../../node_modules/normalize.css/normalize";
+
+// Basic styles and utility blocks
+@import "base";
+@import "blocks/visually-hidden";
+@import "blocks/container";
+@import "blocks/button";
+
+// Blocks
+@import "blocks/page";
+@import "blocks/page-header";
+@import "blocks/tasks";
+@import "blocks/task-list";
+@import "blocks/task-item";
+@import "blocks/search-form";
+@import "blocks/task-adding-form";

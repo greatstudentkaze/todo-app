@@ -1,0 +1,47 @@
+@import "../variables";
+
+.task-adding-form {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.task-adding-form__edit-area {
+  margin-bottom: 15px;
+  padding: 10px;
+
+  background-color: $white;
+  border: 1px solid $gray-500;
+  border-radius: 3px;
+}
+
+.task-adding-form__input {
+  width: 100%;
+
+  font: inherit;
+  font-size: 16px;
+  line-height: 24px;
+
+  background-color: $transparent;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.task-adding-form__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.task-adding-form__button {
+  &--cancel {
+    color: $black;
+
+    background-color: $transparent;
+  }
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
