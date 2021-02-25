@@ -1,21 +1,28 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { TaskItem as TaskItemType } from '../../types';
 import { removeTask, toggleTask, changeTaskTitle } from '../../redux/actions/tasks';
 
-type Props = {
-  data: TaskItemType,
+const mapDispatchToProps = {
+  changeTaskTitle,
+  removeTask,
+  toggleTask,
 };
 
-const TaskItem = ({ data: { title, id, completed } }: Props) => {
-  const dispatch = useDispatch();
+type DispatchProps = typeof mapDispatchToProps;
+
+type Props = {
+  data: TaskItemType,
+} & DispatchProps;
+
+const TaskItem = ({ data: { title, id, completed }, changeTaskTitle, removeTask, toggleTask }: Props) => {
 
   const handleChangeButtonClick = () => {
     const newTitle: string = prompt('Измените задачу:', title) ?? title;
 
     if (newTitle !== title) {
-      dispatch(changeTaskTitle(id, newTitle));
+      changeTaskTitle(id, newTitle);
     }
   };
 
@@ -23,13 +30,13 @@ const TaskItem = ({ data: { title, id, completed } }: Props) => {
     const isRemove = window.confirm('Удалить задачу?');
 
     if (isRemove) {
-      dispatch(removeTask(id));
+      removeTask(id);
     }
   };
 
   return (
     <li className="task-list__item task-item">
-      <input className="visually-hidden" type="checkbox" id={`task-${id}`} checked={completed} onChange={() => dispatch(toggleTask(id))} />
+      <input className="visually-hidden" type="checkbox" id={`task-${id}`} checked={completed} onChange={() => toggleTask(id)} />
       <label className="task-item__title" htmlFor={`task-${id}`}>{title}</label>
       <div className="task-item__actions">
         <button className="task-item__button" type="button" onClick={handleChangeButtonClick}>
@@ -43,4 +50,4 @@ const TaskItem = ({ data: { title, id, completed } }: Props) => {
   );
 };
 
-export default TaskItem;
+export default connect(null, mapDispatchToProps)(TaskItem);
