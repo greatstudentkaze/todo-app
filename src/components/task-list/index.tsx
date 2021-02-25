@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import TaskItem from '../task-item';
-import { RootState } from '../../App';
+import { RootState } from '../../redux/reducers';
 import searchTasks from '../../utils/searchTasks';
+
+import TaskItem from '../task-item';
 
 const mapStateToProps = ({ tasks, filter }: RootState) => ({
   tasks: searchTasks(tasks, filter.searchQuery),

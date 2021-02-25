@@ -1,55 +1,55 @@
-import { ADD_Task, CHANGE_Task_TITLE, REMOVE_Task, SET_TaskS, TOGGLE_Task } from '../types/tasks';
-import { TaskItem } from '../../types';
+import { ADD_TASK, CHANGE_TASK_TITLE, REMOVE_TASK, SET_TASKS, TOGGLE_TASK } from './types/tasks';
+import { TaskItem, Tasks } from '../../types';
 
-interface SetTasksAction {
-  type: typeof SET_TaskS,
-  payload: TaskItem[],
+interface ISetTasksAction {
+  type: typeof SET_TASKS,
+  payload: Tasks,
 }
 
-interface AddTaskAction {
-  type: typeof ADD_Task,
+interface IAddTaskAction {
+  type: typeof ADD_TASK,
   payload: TaskItem,
 }
 
-interface RemoveTaskAction {
-  type: typeof REMOVE_Task,
+interface IRemoveTaskAction {
+  type: typeof REMOVE_TASK,
   payload: string,
 }
 
-interface ChangeTaskTitleAction {
-  type: typeof CHANGE_Task_TITLE,
+interface IChangeTaskTitleAction {
+  type: typeof CHANGE_TASK_TITLE,
   payload: {
     id: string,
     title: string
   },
 }
 
-interface ToggleTaskAction {
-  type: typeof TOGGLE_Task,
+interface IToggleTaskAction {
+  type: typeof TOGGLE_TASK,
   payload: string,
 }
 
-export const addTask = (task: TaskItem) => ({
-  type: ADD_Task,
+export type TasksActionType = ISetTasksAction | IAddTaskAction | IRemoveTaskAction | IChangeTaskTitleAction | IToggleTaskAction;
+
+export const addTask = (task: TaskItem): TasksActionType => ({
+  type: ADD_TASK,
   payload: task,
 });
 
-export const removeTask = (id: string) => ({
-  type: REMOVE_Task,
+export const removeTask = (id: string): TasksActionType => ({
+  type: REMOVE_TASK,
   payload: id,
 });
 
-export const changeTaskTitle = (id: string, title: string) => ({
-  type: CHANGE_Task_TITLE,
+export const changeTaskTitle = (id: string, title: string): TasksActionType => ({
+  type: CHANGE_TASK_TITLE,
   payload: {
     id,
     title,
   },
 });
 
-export const toggleTask = (id: string) => ({
-  type: TOGGLE_Task,
+export const toggleTask = (id: string): TasksActionType => ({
+  type: TOGGLE_TASK,
   payload: id,
 });
-
-export type TasksActionType = SetTasksAction | AddTaskAction | RemoveTaskAction | ChangeTaskTitleAction | ToggleTaskAction;

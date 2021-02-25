@@ -1,4 +1,4 @@
-import { SET_SEARCH_QUERY } from '../types/filter';
+import { SET_SEARCH_QUERY } from '../actions/types/filter';
 import { FilterActionType } from '../actions/filter';
 
 const initialState = {

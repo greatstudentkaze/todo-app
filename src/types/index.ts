@@ -3,3 +3,5 @@ export type TaskItem = {
   title: string,
   completed: boolean,
 };
+
+export type Tasks = TaskItem[];

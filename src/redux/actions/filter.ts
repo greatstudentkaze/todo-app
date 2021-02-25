@@ -1,8 +1,8 @@
-import { SET_SEARCH_QUERY } from '../types/filter';
+import { SET_SEARCH_QUERY } from './types/filter';
 
 type SearchQuery = string;
 
-interface SetSearchQueryAction {
+interface ISetSearchQueryAction {
   type: typeof SET_SEARCH_QUERY,
   payload: string
 }
@@ -12,4 +12,4 @@ export const setSearchQuery = (value: SearchQuery) => ({
   payload: value
 });
 
-export type FilterActionType = SetSearchQueryAction;
+export type FilterActionType = ISetSearchQueryAction;

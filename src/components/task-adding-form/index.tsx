@@ -13,7 +13,7 @@ const TaskAddingForm = ({ hide }: Props) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState<string>('');
 
-  const handleSubmit = (evt: React.SyntheticEvent) => {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
 
     if (title.trim()) {

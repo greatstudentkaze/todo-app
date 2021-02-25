@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setSearchQuery } from '../../redux/actions/filter';
-import { RootState } from '../../App';
+import { RootState } from '../../redux/reducers';
 
 const selectFilter = (state: RootState) => state.filter;
 
@@ -10,7 +10,7 @@ const TaskSearchForm = () => {
   const dispatch = useDispatch();
   const { searchQuery } = useSelector(selectFilter);
 
-  const handleSubmit = (evt: React.SyntheticEvent) => {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
   };
 

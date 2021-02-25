@@ -1,6 +1,6 @@
-import { TaskItem } from '../types';
+import { Tasks } from '../types';
 
-type SearchTasksType = (tasks: TaskItem[], searchQuery: string) => TaskItem[];
+type SearchTasksType = (tasks: Tasks, searchQuery: string) => Tasks;
 
 const searchTasks: SearchTasksType = (tasks, searchQuery) => {
   if (searchQuery.trim()) {
