@@ -7,7 +7,7 @@ interface ISetSearchQueryAction {
   payload: string
 }
 
-export const setSearchQuery = (value: SearchQuery) => ({
+export const setSearchQuery = (value: SearchQuery): ISetSearchQueryAction => ({
   type: SET_SEARCH_QUERY,
   payload: value
 });

@@ -1,7 +1,7 @@
 import { SET_SEARCH_QUERY } from '../actions/types/filter';
 import { FilterActionType } from '../actions/filter';
 
-const initialState = {
+export const initialState = {
   searchQuery: '',
 };
 

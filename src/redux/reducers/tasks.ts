@@ -2,7 +2,7 @@ import { ADD_TASK, CHANGE_TASK_TITLE, REMOVE_TASK, SET_TASKS, TOGGLE_TASK } from
 import { TasksActionType } from '../actions/tasks';
 import { Tasks } from '../../types';
 
-const initialState: Tasks = [
+export const initialState: Tasks = [
   {
     id: '1',
     title: 'Ознакомиться с TypeScript',
