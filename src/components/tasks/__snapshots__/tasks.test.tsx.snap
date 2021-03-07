@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tasks component renders correctly 1`] = `
+<section
+  className="tasks"
+>
+  <h2
+    className="tasks__title"
+  >
+    Список задач
+  </h2>
+  <Connect(TaskList) />
+  <button
+    className="button"
+    onClick={[Function]}
+    type="button"
+  >
+    Добавить
+  </button>
+</section>
+`;

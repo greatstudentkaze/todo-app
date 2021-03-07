@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskList component renders with given state from mocked Redux store 1`] = `
+<ul
+  className="task-list"
+>
+  <TaskItem
+    data={
+      Object {
+        "completed": false,
+        "id": "1",
+        "title": "Ознакомиться с TypeScript",
+      }
+    }
+  />
+  <TaskItem
+    data={
+      Object {
+        "completed": true,
+        "id": "2",
+        "title": "Сделать компонент списка",
+      }
+    }
+  />
+  <TaskItem
+    data={
+      Object {
+        "completed": true,
+        "id": "3",
+        "title": "Сделать компонент task",
+      }
+    }
+  />
+</ul>
+`;

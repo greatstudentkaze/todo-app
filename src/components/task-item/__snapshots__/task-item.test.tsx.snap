@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskItem component renders with given state from mocked Redux store 1`] = `
+<li
+  className="task-list__item task-item"
+>
+  <input
+    checked={false}
+    className="visually-hidden"
+    id="task-1"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    className="task-item__title"
+    htmlFor="task-1"
+  >
+    Ознакомиться с TypeScript
+  </label>
+  <div
+    className="task-item__actions"
+  >
+    <button
+      className="task-item__button"
+      onClick={[Function]}
+      type="button"
+    >
+      Изменить
+    </button>
+    <button
+      className="task-item__button"
+      onClick={[Function]}
+      type="button"
+    >
+      Удалить
+    </button>
+  </div>
+</li>
+`;
