@@ -8,6 +8,8 @@ const Tasks = () => {
 
   const hideEditor = () => setIsShowEditor(false);
 
+  const showEditor = () => setIsShowEditor(true);
+
   return (
     <section className="tasks">
       <h2 className="tasks__title">Список задач</h2>
@@ -15,7 +17,7 @@ const Tasks = () => {
       {
         isShowEditor
           ? <TaskAddingForm hide={hideEditor} />
-          : <button className="button" type="button" onClick={() => setIsShowEditor(true)}>Добавить</button>
+          : <button className="button" type="button" onClick={showEditor}>Добавить</button>
       }
     </section>
   );
